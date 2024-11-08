@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline de Vendas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Oportunidades</h1>
+    <div class="pipeline-container">
+        <!-- Nova Oportunidade -->
+        <div class="pipeline-column" id="new-opportunity" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Nova Oportunidade</h2>
+            <div class="card" id="card1" draggable="true" ondragstart="drag(event)" data-column="new-opportunity">
+                <div class="card-header">
+                    <h3>Cliente: AlfaTech</h3>
+                    <div class="timer" data-time="600">10:00</div>
+                </div>
+                <div class="card-body">
+                    <span class="vendedor"><strong>Vendedor: </strong>Sem acompanhamento</span>
+                    <p><strong>Setor:</strong> Tecnologia</p>
+                    <p><strong>Valor Potencial:</strong> R$ 50,000</p>
+                    <p><strong>Último Atendimento:</strong> 1 dia atrás</p>
+                    <p><strong>Próxima Ação:</strong> Apresentação de Proposta</p>
+                </div>
+                <div class="card-footer">
+                    <button class="action-btn" id="attend-btn-1" onclick="attendOpportunity(event, 'card1')">Atender Oportunidade</button>
+                    <button class="action-btn" onclick="openModal()">Detalhes</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Em Atendimento -->
+        <div class="pipeline-column" id="in-progress" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Em Atendimento</h2>
+            <div class="card" id="card2" draggable="true" ondragstart="drag(event)" data-column="in-progress">
+                <div class="card-header">
+                    <h3>Cliente: Beta Solutions</h3>
+                    <span class="vendedor">Vendedor: Maria Souza</span>
+                    <div class="timer" data-time="300">05:00</div>
+                </div>
+                <div class="card-body">
+                    <p><strong>Setor:</strong> Financeiro</p>
+                    <p><strong>Valor Potencial:</strong> R$ 30,000</p>
+                    <p><strong>Último Atendimento:</strong> 2 dias atrás</p>
+                    <p><strong>Próxima Ação:</strong> Follow-up</p>
+                </div>
+                <div class="card-footer">
+                    <button class="action-btn" onclick="openModal()">Detalhes</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Fechado -->
+        <div class="pipeline-column" id="closed" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Fechado</h2>
+            <div class="card" id="card3" draggable="true" ondragstart="drag(event)" data-column="closed">
+                <div class="card-header">
+                    <h3>Cliente: Gamma Industries</h3>
+                    <span class="vendedor">Vendedor: Carlos Pereira</span>
+                    <div class="timer" data-time="1200">20:00</div>
+                </div>
+                <div class="card-body">
+                    <p><strong>Setor:</strong> Automotivo</p>
+                    <p><strong>Valor Potencial:</strong> R$ 100,000</p>
+                    <p><strong>Último Atendimento:</strong> 3 dias atrás</p>
+                    <p><strong>Próxima Ação:</strong> Envio de Proposta</p>
+                </div>
+                <div class="card-footer">
+                    <button class="action-btn" onclick="openModal()">Detalhes</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Inativo -->
+        <div class="pipeline-column" id="inactive" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Geral</h2>
+            <div class="card" id="card4" draggable="true" ondragstart="drag(event)" data-column="inactive">
+                <div class="card-header">
+                    <h3>Cliente: Delta Systems</h3>
+                    <span class="vendedor">Vendedor: Ana Lima</span>
+                    <div class="timer" data-time="1800">30:00</div>
+                </div>
+                <div class="card-body">
+                    <p><strong>Setor:</strong> Saúde</p>
+                    <p><strong>Valor Potencial:</strong> R$ 80,000</p>
+                    <p><strong>Último Atendimento:</strong> 5 dias atrás</p>
+                    <p><strong>Próxima Ação:</strong> Retomar Contato</p>
+                </div>
+                <div class="card-footer">
+                    <button class="action-btn" id="attend-btn-4" onclick="attendOpportunity(event, 'card4')">Atender</button>
+                    <button class="action-btn" onclick="openModal()">Detalhes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Detalhes da Oportunidade</h2>
+            <p><strong>Cliente:</strong> AlfaTech</p>
+            <p><strong>Vendedor:</strong> João Silva</p>
+            <p><strong>Setor:</strong> Tecnologia</p>
+            <p><strong>Valor Potencial:</strong> R$ 50,000</p>
+            <p><strong>Último Atendimento:</strong> 1 dia atrás</p>
+            <p><strong>Próxima Ação:</strong> Apresentação de Proposta</p>
+            <p><strong>Histórico:</strong> Visita inicial concluída, aguardando feedback para proposta.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
